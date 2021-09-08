@@ -148,6 +148,7 @@ responsive menu
 // about section
 .about {
   height: auto;
+  padding: 3rem 0;
   @include responsive("md") {
     height: auto;
   }
