@@ -17,7 +17,7 @@
   height: 50px;
   position: relative;
   border: 4px solid $prime-color;
-  animation: loader 2s infinite ease;
+  @include animation("loader 2s infinite ease");
 }
 
 .loader-inner {
@@ -25,10 +25,10 @@
   display: inline-block;
   width: 100%;
   background-color: $prime-color;
-  animation: loader-inner 2s infinite ease-in;
+  @include animation("loader-inner 2s infinite ease-in");
 }
 
-@keyframes loader {
+@include keyframes(loader) {
   0% {
     transform: rotate(0deg);
   }
@@ -50,7 +50,7 @@
   }
 }
 
-@keyframes loader-inner {
+@include keyframes(loader-inner) {
   0% {
     height: 0%;
   }

@@ -4,18 +4,12 @@ closeBtn.addEventListener("click", closeResMenu);
 openBtn.addEventListener("click", openResMenu);
 
 function openResMenu() {
-  //   document.getElementById("res-menu").style.display = "block";
   document.querySelector(".res-nav").style.display = "block";
   document.querySelector(".res-nav").style.display = "flex";
 }
 
 function closeResMenu() {
-  // document.getElementById("res-menu").classList.add("circle-scale-down");
-  // document
-  //   .getElementById("res-menu")
-  //   .classList.remove("circle-scale-down");
   document.querySelector(".res-nav").style.display = "none";
-  //   document.getElementById("res-menu").style.display = "none";
 }
 
 // image slider
@@ -82,6 +76,7 @@ if (auto) {
   slideInterval = setInterval(nextSlide, intervalTime);
 }
 
+// loader
 $(window).on("load", function () {
   $(".loader-wrapper").fadeOut("slow");
 });
