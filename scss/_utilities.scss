@@ -1,0 +1,37 @@
+/*
+Utilities
+*/
+.container {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+img {
+  width: 100%;
+}
+
+.header-line {
+  border-left: $prime-color 3px solid;
+  padding-right: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  padding: 20px 0;
+}
+
+p {
+  padding: 20px 0;
+}

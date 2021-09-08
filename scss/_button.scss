@@ -1,0 +1,28 @@
+// inheritence
+
+%btn {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin: 12px;
+  text-align: center;
+
+  &:hover {
+    transform: scale(0.98);
+    border: $prime-color 2px solid;
+    background-color: #fff;
+    color: $prime-color;
+  }
+}
+
+.btn-primary {
+  @extend %btn;
+  background-color: $prime-color;
+  color: #fff;
+}
+
+.btn-secondary {
+  @extend %btn;
+  background-color: #fff;
+  color: $prime-color;
+}

@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap");
+
+$prime-color: #c41131;
+$dark-color: #450612;
+$font-stack: "Raleway", sans-serif;
+
+// animation setting
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+// // Custom break points
+// $breakpoints: (
+//   sm: 576px,
+//   md: 768px,
+//   lg: 1200px,
+// );
+
+// // Media query mixin
+// @mixin media($from, $until, $and, $media-type) {
+//   $min-width: 0;
+//   $max-width: 0;
+//   $query: "";
+
+//   // FROM : this break point(inclusive)
+//   @if $from {
+//     @if type-of($from) == number {
+//       $min-width: $from;
+//     } @else {
+//       $min-width: map-get(
+//         $map: $breakpoints,
+//         $key: $from,
+//       );
+//     }
+//   }
+
+//   // UNTIL: this break point(exclusive)
+//   @if $until {
+//     @if type-of($until) == number {
+//       $max-width: $until - 1px;
+//     } @else {
+//       $max-width: map-get(
+//           $map: &$breakpoints,
+//           $key: $until,
+//         ) -
+//         1px;
+//     }
+//   }
+
+//   @if $min-width != 0 {
+//     $query: "#{$query} and (min-width: #{$min-width})";
+//   }
+//   @if $max-width != 0 {
+//     $query: "#{$query} and (man-width: #{$max-width})";
+//   }
+
+//   @if $and {
+//     $query: "#{$query} and (#{$and})";
+//   }
+
+//   @if ($media-type == "all" and $query != "") {
+//     $media-type: "";
+//     $query: str-slice(unqupte($query), 6);
+//   }
+
+//   @media #{$media-type + $query} {
+//     @content;
+//   }
+// }
+
+// $breakpoints: (
+//   sm: 576px,
+//   md: 768px,
+//   lg: 1200px,
+// );
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+  }
+  @if $breakpoint == "md" {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == "lg" {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+// @include responsive(phone) {
+//   padding: 4px;
+// }

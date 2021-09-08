@@ -1,0 +1,380 @@
+@import "config";
+@import "utilities";
+@import "button";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-stack;
+}
+
+/*
+nav
+*/
+nav {
+  background-color: $prime-color;
+  height: 90px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.open-res-nav {
+  display: none;
+  @include responsive("sm") {
+    display: block;
+  }
+}
+
+.menus {
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+
+    li {
+      margin: 0 5px;
+      padding: 10px 20px;
+
+      a {
+        padding-bottom: 2px;
+      }
+    }
+
+    a:hover,
+    :active {
+      border-bottom: 2px solid #fff;
+    }
+  }
+
+  @include responsive("sm") {
+    display: none;
+  }
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/*
+responsive menu
+*/
+.res-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 2s ease-out;
+
+  .circle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $prime-color;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    @include animation("scale-up 0.8s ease-in");
+  }
+
+  a {
+    color: #fff;
+    padding-top: 20px;
+    font-size: 1rem;
+
+    &:hover {
+      border-bottom: 3px solid #fff;
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 4rem;
+    color: $dark-color;
+    cursor: pointer;
+  }
+}
+
+.circle-scale-down {
+  @include animation("scale-down 0.8s ease-in");
+  animation-fill-mode: forwards;
+}
+
+// animations
+@include keyframes(scale-up) {
+  0% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@include keyframes(scale-down) {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0, 0);
+    display: none;
+    opacity: 0;
+  }
+}
+
+// about section
+.about {
+  height: 100vh;
+  // background-color: yellow;
+  @include responsive("md") {
+    height: auto;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3rem 0;
+    height: 100%;
+    @include responsive("md") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .profile {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    // background-color: yellow;
+    @include responsive("md") {
+      width: 70%;
+      height: 70%;
+      margin: 0 auto;
+      height: auto;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: -15%;
+      width: 100%;
+      height: 70%;
+      background-color: $prime-color;
+      z-index: -1;
+      @include responsive("md") {
+        width: 100%;
+        height: 100%;
+        // background-color: yellow;
+      }
+    }
+  }
+
+  .intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 2rem;
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      margin: 0 auto;
+
+      a {
+        color: $dark-color;
+        padding: 20px;
+      }
+      a:hover {
+        color: $prime-color;
+      }
+    }
+  }
+}
+
+/*
+Slider
+*/
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+
+  .content {
+    position: absolute;
+    bottom: 70px;
+    left: -600px;
+    opacity: 1;
+    width: 600px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: $dark-color;
+    padding: 35px;
+
+    h1 {
+      margin-bottom: 10px;
+    }
+    @include responsive("md") {
+      bottom: -300px;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  &:first-child {
+    background: url("../img/slide-1.jpg") no-repeat center top/cover;
+  }
+  &:nth-child(2) {
+    background: url("../img/slide-2.jpg") no-repeat center top/cover;
+  }
+  &:nth-child(3) {
+    background: url("../img/slide-3.jpg") no-repeat center top/cover;
+  }
+  &:nth-child(4) {
+    background: url("../img/slide-4.jpg") no-repeat center top/cover;
+  }
+  &:nth-child(5) {
+    background: url("../img/slide-5.jpg") no-repeat center top/cover;
+  }
+  &:nth-child(6) {
+    background: url("../img/slide-6.jpg") no-repeat center center/cover;
+  }
+}
+
+.current {
+  opacity: 1;
+  color: black;
+  .content {
+    opacity: 1;
+    transform: translateX(600px);
+    transition: all 0.7s ease-in-out 0.3s;
+
+    @include responsive("md") {
+      transform: translateY(-300px);
+    }
+  }
+}
+
+.buttons {
+  button {
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    padding: 13px 15px;
+    border-radius: 50%;
+    outline: none;
+  }
+  #prev {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+  }
+
+  #next {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+  }
+}
+
+/* 
+Video section
+*/
+#video {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $prime-color;
+  color: #fff;
+  text-align: center;
+  padding: 3rem 0;
+
+  @include responsive("md") {
+    height: auto;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+    height: 100%;
+    @include responsive("md") {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 300px);
+      gap: 10px;
+    }
+
+    div {
+      width: 100%;
+      height: 100%;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  h1 {
+    padding: 3rem 0;
+    .header-line {
+      border-left: #fff 3px solid;
+    }
+  }
+}
+
+footer {
+  background-color: $prime-color;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  color: #fff;
+  .logo {
+    flex: 1;
+  }
+  @include responsive("sm") {
+    flex-direction: columns;
+    font-size: 0.7rem;
+    .logo {
+      display: none;
+    }
+  }
+}
