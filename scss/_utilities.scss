@@ -21,6 +21,8 @@ a {
 img {
   width: 80%;
   max-width: 600px;
+  object-fit: cover;
+  max-height: 500px;
 }
 
 .header-line {
