@@ -77,6 +77,17 @@ if (auto) {
 }
 
 // loader
-$(window).on("load", function () {
-  $(".loader-wrapper").fadeOut("slow");
-});
+// $(window).on("load", function () {
+//   $(".loader-wrapper").fadeOut("slow");
+// });
+
+document.onreadystatechange = function () {
+  var state = document.readyState;
+  if (state == "interactive") {
+    // document.querySelector('.loader-wrapper').style.visibility = 'hidden';
+  } else if (state == "complete") {
+    setTimeout(function () {
+      document.querySelector(".loader-wrapper").style.visibility = "hidden";
+    });
+  }
+};
