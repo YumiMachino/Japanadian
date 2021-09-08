@@ -20,6 +20,7 @@ function closeResMenu() {
 
 // image slider
 const slides = document.querySelectorAll(".slide");
+console.log("slides: ", slides);
 const next = document.querySelector("#next");
 const prev = document.querySelector("#prev");
 const auto = true;
@@ -27,7 +28,6 @@ const intervalTime = 5000;
 let slideInterval;
 
 const nextSlide = () => {
-  console.log("next clicked");
   // get current class
   const current = document.querySelector(".current");
   // remove current class
@@ -81,3 +81,7 @@ if (auto) {
   // Run next slide at interval time
   slideInterval = setInterval(nextSlide, intervalTime);
 }
+
+$(window).on("load", function () {
+  $(".loader-wrapper").fadeOut("slow");
+});
